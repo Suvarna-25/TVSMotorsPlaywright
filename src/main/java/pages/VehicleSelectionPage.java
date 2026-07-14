@@ -1,6 +1,7 @@
 package pages;
 
 import com.microsoft.playwright.Locator;
+import utils.PlaywrightUtil;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -25,7 +26,8 @@ public VehicleSelectionPage(Page page){
     ).first();
 }
 public void selectVehicle(){
-    tvsJupiter.highlight();
+  //  tvsJupiter.highlight();
+    PlaywrightUtil.highLightElement(tvsJupiter);
 //    page.waitForURL("**/next-page-url**", () -> {
 //        tvsJupiter.click();
 //    });

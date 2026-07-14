@@ -23,5 +23,9 @@ public class HomePage {
     }
     public void clickBuyVehicle(){
         buyVehicleLink.click();
+        //Waits until the URL changes.
+        page.waitForURL("**/book-online");
+        //Waits until the current page finishes loading.
+        page.waitForLoadState();
     }
 }
