@@ -6,19 +6,22 @@ import pages.AddressPage;
 import pages.HomePage;
 import pages.VehicleSelectionPage;
 
-public class tvsMotorTest extends BaseTest {
+public class TvsMotorTest extends BaseTest {
     @Test
  public void bookVehicleTest(){
         HomePage homePage=new HomePage(page);
         homePage.navigate();
+        homePage.verifyHomePageLoaded();
         homePage.clickBuyVehicle();
         VehicleSelectionPage vehicleSelectionPage=new VehicleSelectionPage(page);
         vehicleSelectionPage.selectVehicle();
         System.out.println(page.url());
-        //page.pause();
         vehicleSelectionPage.selectVehicleModel();
+        vehicleSelectionPage.verifyVehicleSelectionPageLoaded();
+        vehicleSelectionPage.verifyVehicleModelSelectionPageLoaded();
         vehicleSelectionPage.clickNext();
         AddressPage addressPage=new AddressPage(page);
+        addressPage.verifyAddressPageLoaded();
         addressPage.enterLocation();
         addressPage.selectLocation();
         addressPage.acceptPrivacyPolicy();

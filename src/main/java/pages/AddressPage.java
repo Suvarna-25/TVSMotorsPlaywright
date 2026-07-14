@@ -3,6 +3,7 @@ package pages;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class AddressPage {
     private Page page;
@@ -25,6 +26,14 @@ public class AddressPage {
          emailIdTextbox=page.getByPlaceholder("e.g. neha@gmail.com");
          verifyMobileButton=page.getByRole(AriaRole.BUTTON,new Page.GetByRoleOptions().setName("Verify Mobile Number"));
 
+     }
+     public void verifyAddressPageLoaded(){
+       assertThat(locationTextBox).isVisible();
+       assertThat(privacyCheckbox).isVisible();
+       assertThat(mobileNumberTextbox).isVisible();
+       assertThat(fullNameTextbox).isVisible();
+       assertThat(emailIdTextbox).isVisible();
+       assertThat(verifyMobileButton).isVisible();
      }
      public void enterLocation()
      {
