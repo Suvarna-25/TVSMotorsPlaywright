@@ -3,12 +3,16 @@ package pages;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import config.ConfigReader;
+import utils.ScreenshotUtil;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class HomePage {
     private Page page;
     private Locator buyVehicleLink;
-    private static final String URL = "https://www.tvsmotor.com/";
+    //private static final String URL = "https://www.tvsmotor.com/";
+    private static final String URL= ConfigReader.getProperty("base.url");
     public HomePage(Page page)
     {
         this.page=page;
@@ -16,6 +20,7 @@ public class HomePage {
     }
     public void navigate(){
         page.navigate(URL);
+        //ScreenshotUtil.captureScreenshot(page,"HomePage");
     }
     public void verifyHomePageLoaded(){
         assertThat(page).hasURL(URL);

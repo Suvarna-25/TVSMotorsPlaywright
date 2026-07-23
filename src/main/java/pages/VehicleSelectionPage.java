@@ -5,6 +5,7 @@ import utils.PlaywrightUtil;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import utils.ScreenshotUtil;
 
 public class VehicleSelectionPage {
 private Page page;
@@ -38,6 +39,7 @@ public void selectVehicle(){
 
 public void selectVehicleModel(){
     drumSXC.click();
+    //ScreenshotUtil.captureScreenshot(page,"VehicleSelectionPage");
 }
 public void verifyVehicleSelectionPageLoaded(){
     assertThat(page).hasURL("https://www.tvsmotor.com/book-online/booking-journey?106");

@@ -4,6 +4,7 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import utils.ScreenshotUtil;
 
 public class AddressPage {
     private Page page;
@@ -28,6 +29,7 @@ public class AddressPage {
 
      }
      public void verifyAddressPageLoaded(){
+       //  assertThat(page.getByText("This Text Does Not Exist")).isVisible();
        assertThat(locationTextBox).isVisible();
        assertThat(privacyCheckbox).isVisible();
        assertThat(mobileNumberTextbox).isVisible();
@@ -47,21 +49,24 @@ public class AddressPage {
      {
          privacyCheckbox.check();
      }
-     public void enterMobileNumber()
+     public void enterMobileNumber(String mobileNumber)
      {
-         mobileNumberTextbox.fill("9435678990");
+         mobileNumberTextbox.fill(mobileNumber);
+         //ScreenshotUtil.captureScreenshot(page,"AddressPage");
      }
-     public void enterFullName()
+
+     public void enterFullName(String fullName)
      {
-         fullNameTextbox.fill("Dolly");
+         fullNameTextbox.fill(fullName);
      }
-     public void enterEmail()
+     public void enterEmail(String email)
      {
-         emailIdTextbox.fill("Dolly@gmail.com");
+         emailIdTextbox.fill(email);
      }
     public void clickVerifyMobileNumber()
     {
         verifyMobileButton.click();
     }
+
 
 }
